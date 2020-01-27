@@ -5,6 +5,7 @@ const hbs = require('express-hbs')
 const path = require('path')
 const session = require('express-session')
 const app = express()
+const bodyParser = require('body-parser')
 
 // Setup view engine.
 app.engine('hbs', hbs.express4({
@@ -16,6 +17,7 @@ app.set('views', path.join(__dirname, 'views'))
 
 // Serve static files.
 app.use(express.static(path.join(__dirname, 'public')))
+app.use(bodyParser.json())
 
 // Parse application/x-www-form-urlencoded.
 app.use(express.urlencoded({ extended: false }))

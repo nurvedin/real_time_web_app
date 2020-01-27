@@ -1,0 +1,31 @@
+{
+  "name": "nd222dp-examination-3",
+  "version": "1.0.0",
+  "description": "Examination 3",
+  "main": "app.js",
+  "scripts": {
+    "start": "node app.js",
+    "devstart": "nodemon --inspect ./app.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/1dv523/nd222dp-examination-3.git"
+  },
+  "author": "Nurvedin Dizdarevic",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/1dv523/nd222dp-examination-3/issues"
+  },
+  "homepage": "https://github.com/1dv523/nd222dp-examination-3#readme",
+  "dependencies": {
+    "express": "^4.17.1",
+    "express-hbs": "^2.3.0",
+    "express-session": "^1.17.0",
+    "node-fetch": "^2.6.0",
+    "octonode": "^0.9.5"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.2"
+  }
+}

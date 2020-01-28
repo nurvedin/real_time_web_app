@@ -5,23 +5,13 @@
 // <h5>User: {{this.user}}</h5>
 // <h5>Text: {{this.text}}</h5>
 
-const template = document.createElement('template')
-template.innerHTML = `
-
-<div class="template">
-  <h5>Action:</h5>
-  <h5>Title:</h5>
-  <h5>User:</h5>
-  <h5>Text:</h5>
-</div>
-
-`
-
 const socket = window.io()
 
+const comment = document.querySelector('.comment-container')
+
 socket.on('issues', function (data) {
-  console.log(data)
-  // io.emit('issues', {
-  //   data: data.message
-  // })
+  comment.innerHTML += '<h5>' + 'Action: ' + data.action + '</h5>'
+  comment.innerHTML += '<h5>' + 'Title: ' + data.title + '</h5>'
+  comment.innerHTML += '<h5>' + 'User: ' + data.user + '</h5>'
+  comment.innerHTML += '<h5>' + 'Text: ' + data.text + '</h5>'
 })

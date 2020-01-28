@@ -1,7 +1,9 @@
 'use strict'
 
 const fetch = require('node-fetch')
-const io = require('socket.io-client')
+
+// const EventEmitter = require('events').EventEmitter
+// const emitter = new EventEmitter()
 
 // personal token d65a11ab33e2a2ef0fa68df8aad8002713ea162d
 
@@ -11,10 +13,4 @@ const getIssues = async (req, res) => {
   res.render('home/index', { viewData: viewData })
 }
 
-const webHook = async (req, res) => {
-  console.log(req.body)
-  const socket = io.connect('http://localhost:3000/')
-  console.log(socket)
-}
-
-module.exports = { getIssues, webHook }
+module.exports = { getIssues }

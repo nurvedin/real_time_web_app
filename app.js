@@ -33,4 +33,23 @@ const io = socket(server)
 
 io.on('connection', function(socket) {
   console.log('Made socket connection')
+  io.emit('test', 'Message')
+  // socket.on('issues', function(data) {
+  //   io.sockets.emit('issues', data)
+  // })
+})
+
+app.post('/', async (req, res) => {
+  console.log(req.body.action)
+  console.log(req.body.issue.title)
+  console.log(req.body.issue.user.login)
+  console.log(req.body.comment.body)
+  const notification = {
+    action: req.body.action,
+    title: req.body.issue.title,
+    user: req.body.issue.user.login,
+    text: req.body.comment.body
+  }
+
+  io.emit('issues', notification)
 })

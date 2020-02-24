@@ -33,7 +33,7 @@ const io = socket(server)
 
 io.on('connection', function(socket) {
   console.log('Made socket connection')
-  io.emit('test', 'message')
+  // io.emit('test', 'message')
   // socket.on('issues', function(data) {
   //   io.sockets.emit('issues', data)
   // })
@@ -41,28 +41,54 @@ io.on('connection', function(socket) {
 
 app.post('/', async (req, res) => {
 
-  /*
-  const openIssue = {
-  title: req.body.issue.title,
-  user: req.body.issue.user.login,
-  comment: req.body.issue.comments,
-  created: req.body.issue.created_at,
-  updated: req.body.issue.updated_at
+if (req.body.action === 'created') {
+  const createComment = {
+    action: req.body.action,
+    title: req.body.issue.title,
+    user: req.body.issue.user.login,
+    text: req.body.comment.body
   }
-  */
- 
-const createComment = {
-  action: req.body.action,
-  title: req.body.issue.title,
-  user: req.body.issue.user.login,
-  text: req.body.comment.body
-}
-
 io.emit('create-comment', createComment)
-  
-  // comment issue ger created
-  // edit issue ger edited
-  // delete comment ger deleted
-  // edit comment ger edited
-  // close issue ger closed
+
+} else if (req.body.action === 'deleted') {
+  const deletedComment = {
+    action: req.body.action,
+    title: req.body.issue.title,
+    user: req.body.issue.user.login
+  }
+  io.emit('deleted-comment', deletedComment)
+
+} else if (req.body.action === 'edited') {
+  const editedComment = {
+    action: req.body.action,
+    title: req.body.issue.title,
+    user: req.body.issue.user.login,
+    text: req.body.comment.body
+  }
+  io.emit('edited-comment', editedComment)
+
+} else if (req.body.action === 'closed') {
+  const closedComment = {
+    action: req.body.action,
+    title: req.body.issue.title,
+    user: req.body.issue.user.login
+  }
+  io.emit('closed-comment', closedComment)
+
+} else if (req.body.action === 'opened') {
+  const openedComment = {
+    action: req.body.action,
+    title: req.body.issue.title,
+    user: req.body.issue.user.login
+  }
+  io.emit('opened-comment', openedComment)
+
+} else if (req.body.action === 'reopened') {
+  const reOpenedComment = {
+    action: req.body.action,
+    title: req.body.issue.title,
+    user: req.body.issue.user.login
+  }
+  io.emit('re-opened-comment', reOpenedComment)
+}
 })

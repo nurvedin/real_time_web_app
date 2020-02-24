@@ -53,16 +53,86 @@ socket.on('create-comment', function (data) {
   const col = document.querySelector('#notes')
   col.appendChild(comment)
 })
-/*
-socket.on('open-issue', function (data) {
-  issue.innerText += 'Title: ' + data.title
-  issue.appendChild(breakLine)
-  issue.innerText += 'User: ' + data.user
-  issue.appendChild(breakLine)
-  issue.innerText += 'Number of comments: ' + data.comment
-  issue.appendChild(breakLine)
-  issue.innerText += 'Created at: ' + data.created
-  issue.appendChild(breakLine)
-  issue.innerText += 'Updated at: ' + data.updated
+
+socket.on('deleted-comment', function (data) {
+  const comment = document.createElement('div')
+  comment.setAttribute('class', 'comment-container')
+  const para1 = document.createElement('p')
+  const para2 = document.createElement('p')
+  const para3 = document.createElement('p')
+  para1.innerText += 'Action: ' + data.action
+  comment.appendChild(para1)
+  para2.innerText += 'Title: ' + data.title
+  comment.appendChild(para2)
+  para3.innerText += 'User: ' + data.user
+  comment.appendChild(para3)
+  const col = document.querySelector('#notes')
+  col.appendChild(comment)
 })
-*/
+
+socket.on('closed-comment', function (data) {
+  const comment = document.createElement('div')
+  comment.setAttribute('class', 'comment-container')
+  const para1 = document.createElement('p')
+  const para2 = document.createElement('p')
+  const para3 = document.createElement('p')
+  para1.innerText += 'Action: ' + data.action
+  comment.appendChild(para1)
+  para2.innerText += 'Title: ' + data.title
+  comment.appendChild(para2)
+  para3.innerText += 'User: ' + data.user
+  comment.appendChild(para3)
+  const col = document.querySelector('#notes')
+  col.appendChild(comment)
+})
+
+socket.on('opened-comment', function (data) {
+  const comment = document.createElement('div')
+  comment.setAttribute('class', 'comment-container')
+  const para1 = document.createElement('p')
+  const para2 = document.createElement('p')
+  const para3 = document.createElement('p')
+  para1.innerText += 'Action: ' + data.action
+  comment.appendChild(para1)
+  para2.innerText += 'Title: ' + data.title
+  comment.appendChild(para2)
+  para3.innerText += 'User: ' + data.user
+  comment.appendChild(para3)
+  const col = document.querySelector('#notes')
+  col.appendChild(comment)
+})
+
+socket.on('edited-comment', function (data) {
+  const comment = document.createElement('div')
+  comment.setAttribute('class', 'comment-container')
+  const para1 = document.createElement('p')
+  const para2 = document.createElement('p')
+  const para3 = document.createElement('p')
+  const para4 = document.createElement('p')
+  para1.innerText += 'Action: ' + data.action
+  comment.appendChild(para1)
+  para2.innerText += 'Title: ' + data.title
+  comment.appendChild(para2)
+  para3.innerText += 'User: ' + data.user
+  comment.appendChild(para3)
+  para4.innerText += 'Text: ' + data.text
+  comment.appendChild(para4)
+  const col = document.querySelector('#notes')
+  col.appendChild(comment)
+})
+
+socket.on('re-opened-comment', function (data) {
+  const comment = document.createElement('div')
+  comment.setAttribute('class', 'comment-container')
+  const para1 = document.createElement('p')
+  const para2 = document.createElement('p')
+  const para3 = document.createElement('p')
+  para1.innerText += 'Action: ' + data.action
+  comment.appendChild(para1)
+  para2.innerText += 'Title: ' + data.title
+  comment.appendChild(para2)
+  para3.innerText += 'User: ' + data.user
+  comment.appendChild(para3)
+  const col = document.querySelector('#notes')
+  col.appendChild(comment)
+})

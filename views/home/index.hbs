@@ -1,25 +1,15 @@
   <div class="row">
     <div class="col">
       <h3>Issues</h3>
-      {{#each this.viewData}}
+      {{#each viewData}}
         <ul>
           <div class="issue-container">
-            <h5>Title: {{this.title}}</h5>
-            <h5>{{this.repository_url}}</h5>
-            <h5>Number of comments: {{this.comments}}</h5>
-            <h5>Created: {{this.created_at}}</h5>
-            <h5>Updated: {{this.updated_at}}</h5>
+            {{this.title}}
           </div>
         </ul>
       {{/each}}
     </div>
-    <div class="col">
+    <div class="col" id="notes">
       <h3>Notifications</h3> 
-      {{#each this}}
-      <ul>
-        <div class="comment-container">
-        </div>
-      </ul>
-      {{/each}}
     </div>
   </div>

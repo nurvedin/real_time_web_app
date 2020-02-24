@@ -33,23 +33,36 @@ const io = socket(server)
 
 io.on('connection', function(socket) {
   console.log('Made socket connection')
-  io.emit('test', 'Message')
+  io.emit('test', 'message')
   // socket.on('issues', function(data) {
   //   io.sockets.emit('issues', data)
   // })
 })
 
 app.post('/', async (req, res) => {
-  console.log(req.body.action)
-  console.log(req.body.issue.title)
-  console.log(req.body.issue.user.login)
-  console.log(req.body.comment.body)
-  const notification = {
-    action: req.body.action,
-    title: req.body.issue.title,
-    user: req.body.issue.user.login,
-    text: req.body.comment.body
-  }
 
-  io.emit('issues', notification)
+  /*
+  const openIssue = {
+  title: req.body.issue.title,
+  user: req.body.issue.user.login,
+  comment: req.body.issue.comments,
+  created: req.body.issue.created_at,
+  updated: req.body.issue.updated_at
+  }
+  */
+ 
+const createComment = {
+  action: req.body.action,
+  title: req.body.issue.title,
+  user: req.body.issue.user.login,
+  text: req.body.comment.body
+}
+
+io.emit('create-comment', createComment)
+
+  // comment issue ger created
+  // edit issue ger edited
+  // delete comment ger deleted
+  // edit comment ger edited
+  // close issue ger closed
 })

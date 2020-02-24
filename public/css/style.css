@@ -1,11 +1,11 @@
 .issue-container {
-  background-color: lightgray;
-  border-radius: 5px;
-
+  border: 2px solid;
+  border-radius: 8px;
+  font-weight: bold;
 }
 
 .comment-container {
-  background-color: lightblue;
-  border-radius: 5px;
-
+  border: 2px solid;
+  border-radius: 8px;
+  font-weight: bold;
 }

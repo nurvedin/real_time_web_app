@@ -32,7 +32,7 @@ const socket = window.io()
 
 // const comment = document.querySelector('.comment-container')
 // const issue = document.querySelector('.issue-container')
-const breakLine = document.createElement('br')
+// const breakLine = document.createElement('br')
 // const div = document.createElement('div')
 
 socket.on('create-comment', function (data) {

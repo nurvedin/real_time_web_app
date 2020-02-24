@@ -59,7 +59,7 @@ const createComment = {
 }
 
 io.emit('create-comment', createComment)
-
+  
   // comment issue ger created
   // edit issue ger edited
   // delete comment ger deleted

@@ -3,8 +3,12 @@
       <h3>Issues</h3>
       {{#each viewData}}
         <ul>
+          {{log this}}
           <div class="issue-container">
-            {{this.title}}
+            <p>Title: {{this.title}}</p>
+            <p>Url: {{this.url}}</p>
+            <p>Number of comments: {{this.comments}}</p>
+            <p>Creted at: {{this.created_at}}</p>
           </div>
         </ul>
       {{/each}}
